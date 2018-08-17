@@ -30,7 +30,7 @@ md`# Connected Particles
   const maxDistance2 = maxDistance * maxDistance;
   const tau = 2 * Math.PI;
   const dpi = devicePixelRatio || 1;
-  const canvas = DOM.canvas(width * dpi, height * 1);
+  const canvas = DOM.canvas(width * dpi, height * dpi);
   const context = canvas.getContext("2d");
   let pointLinkMap = {};
   const gcLimit = 10;
