@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://iashishsingh.com/</loc>
+    <loc>https://iashishsingh.com/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://iashishsingh.com/categories/</loc>
+    <loc>https://iashishsingh.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://iashishsingh.com/tags/</loc>
+    <loc>https://iashishsingh.com/tags/</loc>
     <priority>0</priority>
   </url>
   
