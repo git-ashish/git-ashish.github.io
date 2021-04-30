@@ -122,3 +122,10 @@ body {
     font-size: 2em;
     text-decoration: none !important;
 }
+
+.profile-box .linkedin {
+	background-image: url(../img/LI-Bug.svg.original.svg);
+	background-size: contain;
+    width: 75px;
+    background-position-y: 10px;
+}
