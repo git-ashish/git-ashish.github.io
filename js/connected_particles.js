@@ -65,7 +65,7 @@ md`# Connected Particles
     };
     n = particles.length;
   }
-  d3.select(canvas).on("touchmove mousemove", moved);
+  //d3.select(canvas).on("touchmove mousemove", moved);
   
   // Shooting star
   setInterval(function(){

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ashish Singh">
+  <meta name="description" content="Data Visualization Consultant">
+  <title>D3 Parade 2021 – Celebrating a decade of D3.js and the D3 community by Ashish Singh</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="https://iashishsingh.com/favicon.ico">
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kalam', cursive;
+    }
+
+    h2 {
+      font-weight: 400;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    section {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    section.about {
+      border-top: solid 1px #f78f46;
+      margin-top: 3rem;
+      padding: 6rem;
+      box-sizing: border-box;
+      font-weight: 300;
+    }
+
+    .about p {
+      font-size: 1.5rem;
+    }
+
+    svg {
+      z-index: 1;
+    }
+
+    svg,
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 3;
+    }
+
+    circle,
+    line {
+      cursor: pointer;
+    }
+
+    .d3-logo {
+      position: absolute;
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+      left: 50%;
+      top: 50%;
+      width: 50vw;
+      height: 50vh;
+      transform: translate(-50%, -50%);
+    }
+
+    .title {
+      font-size: 2.75rem;
+      font-weight: 400;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: -100vw;
+      right: 0;
+      overflow: hidden;
+      height: 3rem;
+      width: 100%;
+      z-index: 4;
+    }
+
+    .title a {
+      color: #f78f46;
+    }
+
+    .line {
+      fill: none;
+      stroke: #000;
+      stroke-width: 2px;
+    }
+
+    h1#loader {
+      text-align: center;
+      position: absolute;
+      top: -100vh;
+      width: 100vw;
+      font-size: 3rem;
+      transform: translateY(-50%);
+      margin: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section id="graph-section">
+
+    <h1 class="title">D3 Show Reel – a remake of the <a href="https://bl.ocks.org/mbostock/1256572"
+        target="_blank">classic</a> </h1>
+
+    <h1 id="loader">loading data... ~10MB</h1>
+
+    <svg class="d3-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 116 111"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <clipPath id="logo-clip">
+        <path transform="scale(0)"
+          d="M0,0h7.75a45.5,45.5 0 1 1 0,91h-7.75v-20h7.75a25.5,25.5 0 1 0 0,-51h-7.75zm36.2510,0h32a27.75,27.75 0 0 1 21.331,45.5a27.75,27.75 0 0 1 -21.331,45.5h-32a53.6895,53.6895 0 0 0 18.7464,-20h13.2526a7.75,7.75 0 1 0 0,-15.5h-7.75a53.6895,53.6895 0 0 0 0,-20h7.75a7.75,7.75 0 1 0 0,-15.5h-13.2526a53.6895,53.6895 0 0 0 -18.7464,-20z" />
+      </clipPath>
+      <linearGradient id="gradient-1" gradientUnits="userSpaceOnUse" x1="7" y1="64" x2="50" y2="107">
+        <stop offset="0" stop-color="#f9a03c" />
+        <stop offset="1" stop-color="#f7974e" />
+      </linearGradient>
+      <linearGradient id="gradient-2" gradientUnits="userSpaceOnUse" x1="2" y1="-2" x2="87" y2="84">
+        <stop offset="0" stop-color="#f26d58" />
+        <stop offset="1" stop-color="#f9a03c" />
+      </linearGradient>
+      <linearGradient id="gradient-3" gradientUnits="userSpaceOnUse" x1="45" y1="-10" x2="108" y2="53">
+        <stop offset="0" stop-color="#b84e51" />
+        <stop offset="1" stop-color="#f68e48" />
+      </linearGradient>
+      <g clip-path="url(#logo-clip)">
+        <path d="M-100,-102m-28,0v300h300z" fill="url(#gradient-1)" />
+        <path d="M-100,-102m28,0h300v300z" fill="url(#gradient-3)" />
+        <path d="M-100,-102l300,300" fill="none" stroke="url(#gradient-2)" stroke-width="40" />
+      </g>
+    </svg>
+
+  </section>
+
+  <section class="about">
+
+    <h2>This D3 show reel uses <cite><a href="https://bl.ocks.org/" target="_blank">bl.ocks.org</a></cite> dataset made
+      <cite><a href="https://observablehq.com/@enjalot/blockbuilder-search-data?ui=classic"
+          target="_blank">available</a></cite> as a part of the <cite><a href="https://d3js.community/d3-parade-2021"
+          target="_blank">celebrations</a></cite> for D3's decaversary!
+    </h2>
+
+    <p>
+      Custom data parsing for this work was done, and is available as an Observable <cite><a
+          href="https://observablehq.com/d/520f417d234bc4d7" target="_blank">notebook</a></cite>.
+      Additional metadata about number of Stars and Forks of every block was also added.
+    </p>
+
+    <p>
+      The ending animation displays 2021 dots, each of which represents a block. These are the most loved (Stars +
+      Forked) blocks since 2010.
+      The connections between the blocks represents their common authorship. The color of a dot is the prominent color
+      used in that particular block as made available in the dataset.
+      Click on any of the dots or connections to see their underlying block or author respectively.
+    </p>
+
+    <p>
+      The <a target="_blank"
+        href="https://dribbble.com/shots/15113221-Pantone-Color-of-the-Year-2000-2021-in-Figma/attachments/6847045?mode=media">colors</a>
+      representing every year are the respective <a href="https://www.pantone.com/articles/color-of-the-year"
+        target="_blank">Pantone® color of the year</a>.
+    </p>
+
+    <p>Made by <cite><a href="https://iashishsingh.com" target="_blank" style="color: #40667d;">Ashish Singh</a></cite>.
+    </p>
+    <br />
+
+    <footer>
+      This work recreates the <cite><a href="https://bl.ocks.org/mbostock/1256572">original show reel</a> by <a
+          href="https://bost.ocks.org/mike/">Mike Bostock</a></cite> in <cite><a href="//d3js.org/d3.v6.min.js"
+          target="_blank">D3 v6</a></cite> alognwith with some new addtions.
+      Released under the <a href="https://opensource.org/licenses/GPL-3.0">GNU General Public License, version
+        3</a>.
+    </footer>
+
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js"></script>
+  <script>
+
+    var m = [100, 20, 30, 20],
+      w = window.innerWidth - m[1] - m[3],
+      h = window.innerHeight - m[0] - m[2];
+
+    var x,
+      y,
+      duration = 1500,
+      delay = 500;
+
+    const color = d3.scaleOrdinal([
+      "#45b8ac",
+      "#d94f70",
+      "#dd4124",
+      "#009473",
+      "#ad5e99",
+      "#964f4c",
+      "#f7caca",
+      "#88b04b",
+      "#5f4b8b",
+      "#ff6f61",
+      "#0f4c81"
+    ]);
+
+    const graph = d3.select("#graph-section").append("svg")
+      .attr("width", w + m[1] + m[3])
+      .attr("height", h + m[0] + m[2]);
+
+    const svg = graph
+      .append("g")
+      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+    const title = d3.select("h1.title");
+
+    const loader = d3.select("#loader");
+    var t = d3.transition()
+        .duration(duration)
+        .ease(d3.easeElasticOut.amplitude(1).period(0.4));
+
+    loader.transition(t)
+      .style("top", "50vh");
+
+    var yearSeries;
+
+    function getMonth(date) {
+      return date.getMonth() + 1;
+    }
+
+    // A line generator, for the dark stroke.
+    var line = d3.line()
+      .curve(d3.curveBasis)
+      .x(function (d) { return x(getMonth(d.date)); })
+      .y(function (d) { return y(d.count); });
+
+    // A line generator, for the dark stroke.
+    var axis = d3.line()
+      .curve(d3.curveBasis)
+      .x(d => x(getMonth(d.date)))
+      .y(h);
+
+    // A area generator, for the dark stroke.
+    var area = d3.area()
+      .curve(d3.curveBasis)
+      .x(d => x(getMonth(d.date)))
+      .y1(d => y(d.count));
+
+    let seriesHeight;
+    let yearSeriesWithMonthlyCount;
+    const blocks = [];
+
+    d3.json("yearSeries.json").then(function (aYears) {
+
+      yearSeries = aYears.map(y => {
+        return {
+          year: y.year,
+          maxCount: y.maxCount,
+          sumCount: y.sumCount,
+          values: y.values.map(yv => {
+            return {
+              year: yv.year,
+              date: new Date(yv.date),
+              month: getMonth(new Date(yv.date)),
+              count: yv.count,
+            }
+          })
+        }
+      });
+
+      yearSeriesWithMonthlyCount = d3.range(1, 13).map(month => {
+        const monthObj = {
+          month: month
+        };
+
+        aYears.forEach(ys => {
+          monthObj[ys.year] = ys.values[month - 1].count;
+        });
+
+        return monthObj;
+      })
+
+      seriesHeight = h / yearSeries.length;
+
+      var g = svg.selectAll("g")
+        .data(yearSeries)
+        .enter().append("g")
+        .attr("class", "year");
+
+
+      aYears.forEach(y => {
+        y.values.forEach(m => {
+          blocks.push.apply(blocks, m.blocks);
+        });
+      })
+
+      d3.timeout(stopLoading, duration);
+
+      d3.timeout(lines, duration*2);
+
+    });
+
+
+    function stopLoading() {
+      var t1 = d3.transition()
+        .duration(duration)
+        .ease(d3.easeElasticOut.amplitude(1).period(0.4));
+
+      var t2 = d3.transition()
+        .delay(delay)
+        .duration(duration)
+        .ease(d3.easeElasticOut.amplitude(1).period(0.4));
+
+      loader.transition(t1)
+        .style("left", "200vw");
+
+      title.transition(t2)
+        .style("left", "0vw");      
+    }
+
+    function lines() {
+
+      x = d3.scaleLinear().range([0, w - 60]).clamp(true);
+      y = d3.scaleLinear().range([seriesHeight - 20, 0]);
+
+      x.domain([1, 12]);
+
+      var g = svg.selectAll(".year")
+        .attr("transform", (d, i) => `translate(0, ${i * seriesHeight + 10})`);
+
+      g.each(function (d) {
+        var e = d3.select(this);
+
+        e.append("path")
+          .attr("class", "line");
+
+        e.append("circle")
+          .attr("r", 5)
+          .style("fill", d => color(d.year))
+          .style("stroke", "#000")
+          .style("stroke-width", "2px");
+
+        e.append("text")
+          .attr("x", 12)
+          .attr("dy", ".31em")
+          .text(d.year);
+      });
+
+      function draw(k) {
+        g.each(function (d) {
+          var e = d3.select(this);
+          y.domain([0, d.maxCount]);
+
+          e.select("path")
+            .attr("d", d => line(d.values.slice(0, k + 1)));
+
+          e.selectAll("circle")
+            .data(d => [d.values[k]])
+            .attr("transform", (e) => {
+              return `translate( ${x(getMonth(e.date))}, ${y(e.count)})`
+            });
+
+          e.selectAll("text")
+            .data(d => [d.values[k]])
+            .attr("transform", (d) => `translate( ${x(getMonth(d.date))}, ${y(d.count)})`);
+        });
+      }
+
+      var k = 1, n = yearSeries[0].values.length;
+      const timerLines = d3.timer(function () {
+        draw(k);
+        if (k++ >= n - 1) {
+          d3.timeout(horizons, 500);
+          timerLines.stop();
+        }
+      });
+    }
+
+    function horizons() {
+      svg.insert("defs", ".year")
+        .append("clipPath")
+        .attr("id", "clip")
+      .append("rect")
+        .attr("width", w)
+        .attr("height", seriesHeight - 20);
+
+      function getColor(sequence, color){
+        const c = d3.color(color);
+        return sequence == 0 ? c.brighter() : sequence == 1 ? color : c.darker();
+      }
+
+      var g = svg.selectAll(".year")
+        .attr("clip-path", "url(#clip)");
+
+      area
+        .y0(seriesHeight - 20);
+
+      g.select("circle").transition()
+        .duration(duration)
+        .attr("transform", d => `translate(${(w - 60)}, ${-seriesHeight})`)
+        .remove();
+
+      g.select("text").transition()
+        .duration(duration)
+        .attr("transform", d => `translate(${(w - 60)}, ${seriesHeight - 20})`)
+        .attr("dy", "0em");
+
+      g.each(function (d) {
+        y.domain([0, d.maxCount]);
+
+        d3.select(this).selectAll(".area")
+          .data(d3.range(3))
+          .enter().insert("path", ".line")
+          .attr("class", "area")
+          .attr("transform", (d) => `translate(0, ${(d * (seriesHeight - 20))})`)
+          .attr("d", area(d.values))
+          .style("fill", (f, i) => getColor(i, color(d.year)))
+          .style("fill-opacity", 1e-6);
+
+        y.domain([0, d.maxCount / 3]);
+
+        d3.select(this).selectAll(".line").transition()
+          .duration(duration)
+          .attr("d", line(d.values))
+          .style("stroke-opacity", 1e-6);
+
+        d3.select(this).selectAll(".area").transition()
+          .duration(duration)
+          .style("fill-opacity", 1)
+          .attr("d", area(d.values))
+          .on("end", () => d3.select(this).style("fill-opacity", null));
+      });
+
+      d3.timeout(areas, duration + delay);
+    }
+
+    function areas() {
+      var g = svg.selectAll(".year");
+
+      axis
+        .y(seriesHeight - 21);
+
+      g.select(".line")
+        .attr("d", d => axis(d.values));
+
+      g.each(function (d) {
+        y.domain([0, d.maxCount]);
+
+        d3.select(this).select(".line").transition()
+          .duration(duration)
+          .style("stroke-opacity", 1)
+          .on("end", () => d3.select(this).style("stroke-opacity", null));
+
+        d3.select(this).selectAll(".area")
+          .filter((d, i) => i)
+          .transition()
+          .duration(duration)
+          .style("fill-opacity", 1e-6)
+          .attr("d", area(d.values))
+          .remove();
+
+        d3.select(this).selectAll(".area")
+          .filter((d, i) => !i)
+          .transition()
+          .duration(duration)
+          .style("fill", color(d.year))
+          .attr("d", area(d.values));
+      });
+
+      svg.select("defs").transition()
+        .duration(duration)
+        .remove();
+
+      d3.timeout(() => {
+        g.attr("clip-path", null)
+      }, duration);
+
+      d3.timeout(stackedArea, duration + delay);
+    }
+
+    var stackAreaSeries;
+    function stackedArea() {
+      var stack = d3.stack()
+        .keys(yearSeries.map(ys => ys.year))
+        .offset(d3.stackOffsetNone)
+        .order(d3.stackOrderReverse);
+
+      var stackSeries = stackAreaSeries = stack(yearSeriesWithMonthlyCount).map(
+        (d) => (d.forEach((v) => (v.year = d.year)), d)
+      );
+
+      y
+        .domain([0, d3.max(stackSeries, d => d3.max(d, d => d[1]))])
+        .range([h, 0]);
+
+      line
+        .x((d, i) => x(d.data.month))
+        .y(d => y(d[0]));
+
+      area
+        .x((d, i) => x(d.data.month))
+        .y0(d => y(d[0]))
+        .y1(d => y(d[1]));
+
+      var t = svg.selectAll(".year").transition()
+        .duration(duration)
+        .attr("transform", "translate(0,0)")
+        .on("end", function () { d3.select(this).attr("transform", null); });
+
+      t.select("path.area")
+        .attr("d", function (d, i) { return area(stackSeries[i]); });
+
+      t.select("path.line")
+        .style("stroke-opacity", function (d, i) { return i < 3 ? 1e-6 : 1; })
+        .style("stroke", "#fff")
+        .attr("d", function (d, i) { return line(stackSeries[i]); });
+
+      t.select("text")
+        .attr("transform", function (d, i) {
+          const dp = stackSeries[i][11];
+          return `translate(${(w - 60)}, ${y(dp[1]) - (i < 2 ? 30 / (i + 1) : 0)})`;
+        });
+
+      d3.timeout(streamgraph, duration + delay);
+    }
+
+    var stackStreamSeries;
+    function streamgraph() {
+
+      var stack = d3.stack()
+        .keys(yearSeries.map(ys => ys.year))
+        .offset(d3.stackOffsetWiggle)
+        .order(d3.stackOrderReverse);
+
+      var stackSeries = stackStreamSeries = stack(yearSeriesWithMonthlyCount).map(
+        (d) => (d.forEach((v) => (v.year = d.year)), d)
+      );
+
+      y
+        .domain([0, d3.max(stackSeries, d => d3.max(d, d => d[1]))])
+        .range([h, 0]);
+
+      var t = svg.selectAll(".year").transition()
+        .duration(duration);
+
+      t.select("path.area")
+        .attr("d", function (d, i) { return area(stackSeries[i]); });
+
+      t.select("path.line")
+        .style("stroke-opacity", 1e-6)
+        .attr("d", function (d, i) { return line(stackSeries[i]); });
+
+      t.select("text")
+        .attr("transform", function (d, i) {
+          const dp = stackSeries[i][11];
+          return `translate(${(w - 60)}, ${y(dp[1]) - (i < 2 ? 30 / (i + 1) : 0)})`;
+        });
+
+      d3.timeout(overlappingArea, duration + delay);
+    }
+
+    function overlappingArea() {
+      var g = svg.selectAll(".year");
+
+      line
+        .y(d => y(d[0] + d[1]));
+
+      g.select(".line")
+        .attr("d", function (d, i) { return line(stackStreamSeries[i]); });
+
+      y
+        .domain([0, d3.max(yearSeries.map(function (d) { return d.maxCount; }))])
+        .range([h, 0]);
+
+      area
+        .x((d, i) => x(d.month))
+        .y0(h)
+        .y1(function (d) { return y(d.count); });
+
+      line
+        .x((d, i) => x(d.month))
+        .y(function (d) { return y(d.count); });
+
+      var t = g.transition()
+        .duration(duration);
+
+      t.select(".line")
+        .style("stroke-opacity", 1)
+        .attr("d", function (d) { return line(d.values); });
+
+      t.select(".area")
+        .style("fill-opacity", .5)
+        .attr("d", function (d) { return area(d.values); });
+
+      t.select("text")
+        .attr("dy", ".31em")
+        .attr("transform", function (d) { d = d.values[d.values.length - 1]; return "translate(" + (w - 60) + "," + y(d.count) + ")"; });
+
+      svg.append("line")
+        .attr("class", "line")
+        .attr("x1", 0)
+        .attr("x2", w - 60)
+        .attr("y1", h)
+        .attr("y2", h)
+        .style("stroke-opacity", 1e-6)
+        .transition()
+        .duration(duration)
+        .style("stroke-opacity", 1);
+
+      d3.timeout(groupedBar, duration + delay + 50);
+    }
+
+    function groupedBar() {
+
+      x = d3.scaleBand()
+        .domain(yearSeries[0].values.map(function (d) { return d.month; }))
+        .range([0, w - 60])
+        .paddingInner(0.1);
+
+      var x1 = d3.scaleBand()
+        .domain(yearSeries.map(function (d) { return d.year; }))
+        .range([0, x.bandwidth()]);
+
+      var g = svg.selectAll(".year");
+
+      var t = g.transition()
+        .duration(duration);
+
+      t.select(".line")
+        .style("stroke-opacity", 1e-6)
+        .remove();
+
+      t.select(".area")
+        .style("fill-opacity", 1e-6)
+        .remove();
+
+      t.select("text")
+        .style("fill-opacity", 1e-6);
+
+      g.each(function (p, j) {
+        d3.select(this).selectAll("rect")
+          .data(function (d) { return d.values; })
+          .enter().append("rect")
+          .attr("x", function (d) { return x(d.month) + x1(p.year); })
+          .attr("y", function (d) { return y(d.count); })
+          .attr("width", x1.bandwidth())
+          .attr("height", function (d) { return h - y(d.count); })
+          .style("fill", color(p.year))
+          .style("fill-opacity", 1e-6)
+          .transition()
+          .duration(duration)
+          .style("fill-opacity", 1);
+      });
+
+      d3.timeout(stackedBar, duration + delay);
+    }
+
+    function stackedBar() {
+      x.rangeRound([0, w - 60]);
+
+      y
+        .domain([0, d3.max(stackAreaSeries, d => d3.max(d, d => d[1]))])
+        .range([h, 0])
+        .clamp(true);
+
+      var g = svg.selectAll(".year");
+
+      var t = g.transition()
+        .duration(duration / 2);
+
+      t.select("text")
+        .delay(yearSeries[0].values.length * 10)
+        .style("fill-opacity", 1)
+        .attr("transform", function (d, i) {
+          const dp = stackAreaSeries[i][11];
+          return `translate(${(w - 60)}, ${y(dp[1]) - (i < 2 ? 30 / (i + 1) : 0)})`;
+        });
+
+      g.each(function (p, j) {
+        d3.select(this).selectAll("rect")
+          .transition()
+          .duration(duration / 2)
+          .delay(function (d, i) { return i * 20; })
+          .attr("y", function (d, i) { return y(stackAreaSeries[j][i][1]); })
+          .attr("height", function (d, i) {
+            return h - y(stackAreaSeries[j][i].data[p.year]);
+          })
+          .on("end", function () {
+            d3.select(this)
+              .style("stroke", "#fff")
+              .style("stroke-opacity", 1e-6)
+              .transition()
+              .duration(duration / 2)
+              .attr("x", function (d) { return x(d.month); })
+              .attr("width", x.bandwidth())
+              .style("stroke-opacity", 1);
+          });
+      });
+
+      d3.timeout(transposeBar, duration + yearSeries[0].values.length * 10 + delay);
+    }
+
+    // We change from months to year as the base now.
+    function transposeBar() {
+      x
+        .domain(yearSeries.map(function (d) { return d.year; }))
+        .rangeRound([0, w]);
+
+      y
+        .domain([0, d3.max(yearSeries.map(d => d.sumCount))]);
+
+      var g = svg.selectAll(".year");
+
+      var t = g.transition()
+        .duration(duration);
+
+      g.each(function (p, j) {
+        d3.select(this)
+          .selectAll("rect")
+          .transition()
+          .duration(duration)
+          .delay(function (d, i) { return i * 20; })
+          .attr("y", function (d, i) { return y(d3.sum(yearSeries[j].values.slice(0, i + 1), dp => dp.count)); })
+          .attr("x", function (d) { return x(d.year); })
+          .attr("width", x.bandwidth())
+          .attr("height", function (d, i) {
+            return h - y(d3.sum(yearSeries[j].values.slice(0, i + 1), dp => dp.count));
+          })
+      });
+
+      t.select("text")
+        .attr("x", 0)
+        .attr("transform", function (d) { return "translate(" + (x(d.year) + x.bandwidth() / 2) + "," + h + ")"; })
+        .attr("dy", "1.31em")
+        .on("end", function () { d3.select(this).attr("text-anchor", "middle"); });
+
+      svg.select("line").transition()
+        .duration(duration)
+        .attr("x2", w);
+
+      d3.timeout(donut, duration + 11 * 10 + delay);
+    }
+
+    function donut() {
+      var g = svg.selectAll(".year");
+
+      g.selectAll("rect").remove();
+
+      var pie = d3.pie()
+        .value(function (d) { return d.sumCount; })
+        .sort((a, b) => d3.descending(+a.year, +b.year));
+
+      var arc = d3.arc();
+
+      g.append("path")
+        .style("fill", function (d) { return color(d.year); })
+        .data(function () { return pie(yearSeries); })
+        .transition()
+        .duration(duration)
+        .tween("arc", arcTween);
+
+      // g.select("text").transition()
+      //   .duration(duration)
+      //   .attr("dy", ".31em");
+
+      svg.select("line").transition()
+        .duration(duration)
+        .attr("y1", 2 * h)
+        .attr("y2", 2 * h)
+        .remove();
+
+      function arcTween(d) {
+        var path = d3.select(this),
+          text = d3.select(this.parentNode.appendChild(this.previousSibling)),
+          x0 = x(d.data.year),
+          y0 = h - y(d.data.sumCount);
+
+        return function (t) {
+          var r = h / 2 / Math.min(1, t + 1e-3),
+            a = Math.cos(t * Math.PI / 2),
+            xx = (-r + (a) * (x0 + x.bandwidth()) + (1 - a) * (w + h) / 2),
+            yy = ((a) * h + (1 - a) * h / 2),
+            f = {
+              innerRadius: r - x.bandwidth() / (2 - a),
+              outerRadius: r,
+              startAngle: a * (Math.PI / 2 - y0 / r) + (1 - a) * d.startAngle,
+              endAngle: a * (Math.PI / 2) + (1 - a) * d.endAngle
+            };
+
+          path.attr("transform", "translate(" + xx + "," + yy + ")");
+          path.attr("d", arc(f));
+          text.attr("transform", "translate(" + arc.centroid(f) + ")translate(" + xx + "," + yy + ")rotate(" + ((f.startAngle + f.endAngle) / 2 + 3 * Math.PI / 2) * 180 / Math.PI + ")");
+        };
+      }
+
+      d3.timeout(donutExplode, duration);
+    }
+
+    function donutExplode() {
+      var r0a = h / 2 - x.bandwidth() / 2,
+        r1a = h / 2,
+        r0b = 2 * h - x.bandwidth() / 2,
+        r1b = 2 * h,
+        arc = d3.arc()
+          .cornerRadius(0);
+
+      svg.selectAll(".year path")
+        .transition()
+        .duration(duration)
+        .tween("arcs", transitionExplode);
+
+      function transitionExplode(d, i) {
+        const arcTarget = {
+          innerRadius: r0b,
+          outerRadius: r1b
+        };
+
+        const ip = d3.interpolate({
+          innerRadius: r0a,
+          outerRadius: r1a
+        }, arcTarget);
+
+        var path = d3.select(this),
+          text = d3.select(this.nextSibling);
+        return function (t) {
+          var a = ip(t),
+            dp = Object.assign(d, a);
+
+          path.attr("d", arc(dp));
+          text.attr("transform", "translate(" + arc.centroid(dp) + ")translate(" + w / 2 + "," + h / 2 + ")rotate(" + ((dp.startAngle + dp.endAngle) / 2 + 3 * Math.PI / 2) * 180 / Math.PI + ")");
+        };
+      }
+
+      d3.timeout(logoZoom, duration / 3);
+    }
+
+    function forceSVG() {
+
+      w = window.innerWidth;
+      h = window.innerHeight;
+
+      svg
+        .attr("transform", "translate(0,0)")
+        .selectAll("*").remove();
+
+      graph
+        .style("opacity", 0)
+        .style("background", "#ffffff91");
+
+      // ./
+
+
+      const tau = 2 * Math.PI;
+
+      var nodes = blocks
+        .filter(b => b.love)
+        .sort((a, b) => d3.descending(a.love, b.love))
+        .slice(0, 2021);
+
+      var rScale = d3.scaleLog()
+        .domain(d3.extent(nodes, n => n.love))
+        .range([2, 8]);
+
+      const strength = 1.79;
+
+      const forceCenter = d3.forceCenter(0, 0);
+      const forceManybody = d3.forceManyBody().strength(-5);
+      const forceRadial = d3.forceRadial().radius(0);
+
+      var simulation = d3.forceSimulation(blocks)
+        .velocityDecay(0.2)
+        .force("center", forceCenter)
+        .force("n-body", forceManybody)
+        .force("radial", forceRadial)
+        .stop();
+
+      const radius = 2.5;
+      const strokeWidth = 10;
+      const minDistance = 40;
+      const maxDistance = 60;
+      const minDistance2 = minDistance * minDistance;
+      const maxDistance2 = maxDistance * maxDistance;
+
+      const width = w,
+        height = h;
+
+      let n = nodes.length;
+      let particles = nodes;
+
+      for (let i = 0; i < n; ++i) {
+        particles[i] = Object.assign({
+          x: width / 2,
+          y: height / 2,
+          vx: 0,
+          vy: 0,
+          radius: rScale(nodes[i].love),
+          connections: 1,
+          color: nodes[i].primaryColor || "#ddd",
+          year: (new Date(particles[i].createdAt)).getFullYear()
+        }, particles[i]);
+      }
+
+      let firstDraw = true;
+      const blockUrl = "https://bl.ocks.org/";
+      function draw() {
+
+        requestAnimationFrame(() => {
+
+          for (let i = 0; i < n; ++i) {
+            const p = particles[i];
+            p.x += p.vx;
+            if (p.x < -maxDistance) p.x += width + maxDistance * 2;
+            else if (p.x > width + maxDistance) p.x -= width + maxDistance * 2;
+            p.y += p.vy;
+            if (p.y < -maxDistance) p.y += height + maxDistance * 2;
+            else if (p.y > height + maxDistance) p.y -= height + maxDistance * 2;
+            p.vx += .1 * (Math.random() - .5) - 0.01 * p.vx - 0.00 * p.radius;
+            p.vy += .1 * (Math.random() - .5) - 0.01 * p.vy - 0.00 * p.radius;
+          }
+
+          const connections = [];
+          for (let i = 0; i < n; ++i) {
+            for (let j = i + 1; j < n; ++j) {
+              const pi = particles[i];
+              const pj = particles[j];
+              const dx = pi.x - pj.x;
+              const dy = pi.y - pj.y;
+              const d2 = dx * dx + dy * dy;
+              if (d2 < maxDistance2 && (pi.userId == pj.userId/* || pi.year == pj.year*/)) {
+                const opacity = d2 > minDistance2 ? (maxDistance2 - d2) / (maxDistance2 - minDistance2) : 0.5 /* 1 */;
+
+                connections.push({
+                  userId: pi.userId,
+                  x1: pi.x,
+                  y1: pi.y,
+                  x2: pj.x,
+                  y2: pj.y,
+                  color: pi.color,
+                  opacity: opacity
+                });
+
+              }
+            }
+          }
+
+          svg.selectAll("line.connection")
+            .data(connections)
+            .join("line")
+            .classed("connection", true)
+            .attr("x1", d => d.x1)
+            .attr("x2", d => d.x2)
+            .attr("y1", d => d.y1)
+            .attr("y2", d => d.y2)
+            .attr("stroke", d => d.color)
+            .attr("stroke-width", strokeWidth)
+            .attr("stroke-opacity", 0.1)
+            .attr("stroke-linecap", "round")
+            .on("click", (e, d) => {
+              window.open(`${blockUrl}${d.userId}`);
+            });
+
+
+          // draw the dots
+          svg.selectAll("circle.dot")
+            .data(particles)
+            .join("circle")
+            .classed("dot", true)
+            .attr("r", d => d.radius)
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("fill", d => d.color)
+            .attr("stroke", d => color(d.year))
+            .attr("stroke-opacity", 1)
+            .attr("stroke-width", 0.75)
+            .on("click", (e, d) => {
+              window.open(`${blockUrl}${d.userId}/${d.id}`);
+            });
+
+          if (firstDraw) {
+            firstDraw = false;
+            graph.transition().duration(duration / 2).style("opacity", 1);
+          }
+
+          draw();
+        });
+      }
+
+      draw();
+    }
+
+    function logoZoom() {
+
+      const logo = d3.select(".d3-logo").style("opacity", 1);
+
+      logo
+        .transition()
+        .duration(duration)
+        .tween("transform", function () {
+
+          const ip = d3.interpolate(40, 0);
+          const ipScale = d3.interpolate(0, 1);
+
+          const _svg = d3.select(this),
+            _clipPath = _svg.select("#logo-clip path");
+
+          return function (t) {
+
+            var v = ip(t);
+
+            _clipPath.attr("transform", `translate(${v},${v}) scale(${ipScale(t)})`);
+          }
+
+        });
+
+      const logoElements = logo.select("g").selectAll("path");
+      function animateLogo(sourceScale, targetScale) {
+        logoElements.transition().delay(delay).duration(Math.max(duration, duration * 2 * Math.random())).tween("scale", function () {
+          const ip = d3.interpolate(sourceScale, targetScale);
+          return function (t) {
+            d3.select(this).attr("transform", `scale(${ip(t)})`);
+          }
+        }).on("end", function () {
+          animateLogo(Math.max(0.5, targetScale), Math.max(0.5, sourceScale * Math.random() * 2));
+        });
+      }
+
+      d3.timeout(() => animateLogo(1, 2), duration);
+
+      d3.timeout(() => {
+        title.transition().duration(delay).style("top", "103vh");
+      }, duration);
+
+      d3.timeout(forceSVG, duration + delay + 10);
+
+    }
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-124172918-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</body>
+
+</html>
