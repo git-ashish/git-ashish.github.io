@@ -53,7 +53,10 @@ md`# Connected Particles
   }
     
   function moved() {
-    let m = d3.mouse(this);
+    let m = d3.mouse && d3.mouse(this);
+    if(!m){
+      return;
+    }
     particles[0] = {
       x: m[0],
       y: m[1],
@@ -65,7 +68,7 @@ md`# Connected Particles
     };
     n = particles.length;
   }
-  //d3.select(canvas).on("touchmove mousemove", moved);
+  d3.select(canvas).on("touchmove mousemove", moved);
   
   // Shooting star
   setInterval(function(){

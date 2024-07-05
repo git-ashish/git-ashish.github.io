@@ -1,20 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://iashishsingh.com/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2018-08-02T20:51:34+05:30</lastmod>
+  </url><url>
+    <loc>https://iashishsingh.com/posts/</loc>
+    <lastmod>2018-08-02T20:51:34+05:30</lastmod>
+  </url><url>
     <loc>https://iashishsingh.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://iashishsingh.com/tags/</loc>
-    <priority>0</priority>
   </url>
-  
 </urlset>

@@ -124,8 +124,8 @@ body {
 }
 
 .profile-box .linkedin {
-	background-image: url(../img/LI-Bug.svg.original.svg);
-	background-size: contain;
+    background-image: url(../img/LI-Bug.svg.original.svg);
+    background-size: contain;
     width: 75px;
     background-position-y: 10px;
 }

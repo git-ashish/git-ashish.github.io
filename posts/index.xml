@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Ashish Singh - Data Visualization Consultant and JavaScript Craftsman</title>
+    <link>https://iashishsingh.com/posts/</link>
+    <description>Recent content in Posts on Ashish Singh - Data Visualization Consultant and JavaScript Craftsman</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://iashishsingh.com/posts/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
