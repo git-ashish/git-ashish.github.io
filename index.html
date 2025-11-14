@@ -1,291 +1,416 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-	<meta name="generator" content="Hugo 0.128.2">
+        <meta name="generator" content="Hugo 0.128.2">
         <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Ashish Singh">
-<meta name="description" content="Data Visualization Consultant">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Ashish Singh">
+        <meta name="description" content="Data Visualization Consultant & Software Engineer specializing in D3.js, Observable, and interactive data experiences">
+        <meta name="keywords" content="data visualization, D3.js, Observable, consultant, software engineer, SAP">
 
-<title>Ashish Singh - Data Visualization &amp; SAP Consultant</title>
+        <title>Ashish Singh - Data Visualization Engineer & Consultant</title>
 
-<!-- Favicon -->
-<link rel="shortcut icon" href="https://iashishsingh.com/favicon.ico">
-<!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="https://iashishsingh.com/css/bootstrap.min.css" type="text/css">
-<!-- Custom Fonts -->
-<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://iashishsingh.com/font-awesome/css/font-awesome.min.css" type="text/css">
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="https://iashishsingh.com/css/animate.min.css" type="text/css">
-<!-- Custom CSS -->
-<link rel="stylesheet" href="https://iashishsingh.com/css/creative.css" type="text/css">
-<link rel="stylesheet" href="https://iashishsingh.com/css/theme.css" type="text/css">
-<link rel="stylesheet" href="https://iashishsingh.com/css/modals.css" type="text/css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="https://iashishsingh.com/favicon.ico">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://iashishsingh.com/css/bootstrap.min.css" type="text/css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://iashishsingh.com/font-awesome/css/font-awesome.min.css" type="text/css">
+
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="https://iashishsingh.com/css/animate.min.css" type="text/css">
+
+        <!-- Custom CSS - Order matters -->
+        <link rel="stylesheet" href="https://iashishsingh.com/css/creative.css" type="text/css">
+        <link rel="stylesheet" href="https://iashishsingh.com/css/modals.css" type="text/css">
+        <link rel="stylesheet" href="https://iashishsingh.com/css/light-theme.css" type="text/css">
+
+        <style>
+            /* Prevent FOUC */
+            html {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            html.wf-active {
+                opacity: 1;
+            }
+        </style>
     </head>
-    <body id="page-top">
-        
-            <!-- NAVIGATION -->
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-                <a class="navbar-brand page-scroll" href="#page-top">Ashish Singh</a>
-            
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                
-                
-                    <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                
-                
-                
-                    <li>
-                        <a class="page-scroll" href="#profile">Profile</a>
-                    </li>
-                
-                
-                
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
+    <body id="page-top" data-theme="light">
 
-        
+        <!-- THEME TOGGLE -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun" style="display: none;"></i>
+        </button>
 
-        
-            <!-- HEADER -->
-<header>
-    <div width="100%" height="100%" id="homecanvas"></div>
-    <div class="header-content">
-        <div class="header-content-inner">
-            
-                <h1>Creator. Coder. Craftsman.</h1>
-            
-            
-            
-            
-        </div>
-    </div>
-</header>
-
-        
-
-        
-            <!-- ABOUT -->
-<section class="bg-primary" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                
-                    <h2 class="section-heading">Happy Clients. Worldwide. Over 15 years.</h2>
-                
-                
-                    <hr class="light">
-                
-                
-                    <p class="text-faded">Software generalist &amp; engineer. Passionate about building successful projects through teamwork, clean documented code, and perseverance.</p>
-                
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-        
-
-        
-            <!-- SERVICES -->
-<section id="services">
-    
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Consulting Areas</h2>
-                    <hr class="primary">
+        <!-- NAVIGATION -->
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Ashish Singh</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#featured-work">Work</a></li>
+                        <li><a class="page-scroll" href="#about">About</a></li>
+                        <li><a class="page-scroll" href="#services">Services</a></li>
+                        <li><a class="page-scroll" href="#profile">Profile</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-magic wow bounceIn text-primary"></i>
-                    <h3>Data Visualization</h3>
-                    
-                        <p class="text-muted">Elegant. Insightful. Creative.</p>
-                    
+        </nav>
+
+        <!-- HERO SECTION -->
+        <header>
+            <div width="100%" height="100%" id="homecanvas"></div>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>Data Visualization Engineer</h1>
+                    <p class="subtitle">Transforming complex data into compelling interactive stories with D3.js & Observable</p>
+                    <div class="cta-buttons">
+                        <a href="#featured-work" class="btn-modern btn-primary-modern page-scroll">View My Work</a>
+                        <a href="#contact" class="btn-modern btn-outline-modern page-scroll">Get In Touch</a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-briefcase wow bounceIn text-primary"></i>
-                    <h3>SAP</h3>
-                    
-                        <p class="text-muted">Business. Technology. Platform.</p>
-                    
+        </header>
+
+        <!-- FEATURED WORK SECTION -->
+        <section id="featured-work">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Featured Work</h2>
+                    <p class="subtitle">Interactive data visualizations that tell stories</p>
+                </div>
+
+                <!-- Project 1: D3 Parade 2021 -->
+                <div class="project-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-card-image">
+                        <!-- Placeholder - Replace with actual screenshot -->
+                        <a href="./projects/d3-parade-2021/" target="_blank">
+                            <img src="https://placehold.co/1200x675/112240/64ffda?text=D3+Parade+2021+%E2%80%93+Celebrating+D3%27s+History"
+                                 alt="D3 Parade 2021 visualization showing 2021 blocks">
+                        </a>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">D3 Parade 2021 – A Tribute to D3.js</h3>
+                        <p class="project-card-description">
+                            An interactive data visualization celebrating 10 years of D3.js. Features animated transitions through multiple visualization types
+                            (line charts, stream graphs, force-directed networks) showcasing 2,021 of the most loved bl.ocks since 2010.
+                            The final animation displays connected nodes representing authorship relationships in the D3 community.
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">D3.js v6</span>
+                            <span class="tech-badge">Force Simulation</span>
+                            <span class="tech-badge">SVG Animation</span>
+                            <span class="tech-badge">Data Processing</span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="./projects/d3-parade-2021/" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Live Demo
+                            </a>
+                            <a href="https://observablehq.com/@iashishsingh/d3-parade-2021" target="_blank" class="project-link">
+                                <i class="fa fa-code"></i> Observable Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: D3 Sunburst Zoomable -->
+                <div class="project-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-card-image">
+                        <!-- Observable Embed or Placeholder -->
+                        <a href="https://observablehq.com/@iashishsingh/d3-sunburst-zoomable" target="_blank">
+                            <img src="https://placehold.co/1200x675/112240/c792ea?text=Zoomable+Sunburst+Chart"
+                                 alt="Interactive zoomable sunburst visualization">
+                        </a>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">D3 Sunburst — Zoomable Hierarchical Visualization</h3>
+                        <p class="project-card-description">
+                            An interactive sunburst chart for exploring hierarchical data. Features smooth zoom transitions,
+                            customizable colors, and intuitive navigation. Perfect for visualizing file systems, organizational structures,
+                            or any hierarchical dataset.
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Hierarchical Data</span>
+                            <span class="tech-badge">Interactive Zoom</span>
+                            <span class="social-proof">
+                                <i class="fa fa-star"></i> 13
+                            </span>
+                            <span class="social-proof">
+                                <i class="fa fa-code-fork"></i> 10
+                            </span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="https://observablehq.com/@iashishsingh/d3-sunburst-zoomable" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Observable Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Aster Chart -->
+                <div class="project-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-card-image">
+                        <a href="https://observablehq.com/@git-ashish/d3-aster-chart" target="_blank">
+                            <img src="https://placehold.co/1200x675/112240/82aaff?text=D3+Aster+Chart+Component"
+                                 alt="D3 Aster chart visualization">
+                        </a>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">D3 Aster Chart — Custom Chart Component</h3>
+                        <p class="project-card-description">
+                            A reusable aster chart component combining pie and donut charts with variable radius.
+                            Ideal for displaying metrics with both category and magnitude dimensions. Built with D3.js best practices
+                            for modularity and reusability.
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Custom Charts</span>
+                            <span class="tech-badge">Reusable Components</span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="https://observablehq.com/@git-ashish/d3-aster-chart" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Observable Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Client Work Placeholder -->
+                <div class="project-card wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="project-card-image">
+                        <img src="https://placehold.co/1200x675/112240/667eea?text=SAP+Analytics+Dashboard+%E2%80%93+Client+Project"
+                             alt="SAP Analytics Dashboard">
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">SAP Analytics Dashboard — Enterprise Client Project</h3>
+                        <p class="project-card-description">
+                            [Add your client project description here. Example: Custom analytics dashboard integrating SAP data with
+                            interactive D3.js visualizations. Enabled real-time monitoring of business KPIs with drill-down capabilities
+                            and predictive insights. Increased data-driven decision making by 300%.]
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">SAP</span>
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Real-time Data</span>
+                            <span class="tech-badge">Enterprise</span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="#contact" class="project-link page-scroll">
+                                <i class="fa fa-envelope"></i> Request Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Work CTA -->
+                <div class="text-center" style="margin-top: 3rem;">
+                    <a href="https://observablehq.com/@iashishsingh" target="_blank" class="btn-modern btn-primary-modern">
+                        View All Observable Notebooks <i class="fa fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x fa-code wow bounceIn text-primary"></i>
-                    <h3>Software Development</h3>
-                    
-                        <p class="text-muted">Performant. Documented. Tested.</p>
-                    
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="bg-primary" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">Turning Data Into Impact</h2>
+                        <hr class="light">
+                        <p class="text-faded" style="font-size: 1.2rem;">
+                            Software engineer and data visualization specialist with 15+ years of experience building
+                            successful projects through clean code, creative design, and data storytelling.
+                            Passionate about making complex data accessible and beautiful.
+                        </p>
+
+                        <!-- Stats -->
+                        <div class="stats-grid">
+                            <div class="stat-card wow fadeInUp" data-wow-delay="0.1s">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-card wow fadeInUp" data-wow-delay="0.2s">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Projects Delivered</span>
+                            </div>
+                            <div class="stat-card wow fadeInUp" data-wow-delay="0.3s">
+                                <span class="stat-number">Global</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-        </div>
-    </div>
-</section>
+        </section>
 
-        
-
-        
-
-        
-            <!-- PROFILES -->
-<section id="profile">
-    
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Profile</h2>
-                    <hr class="primary">
+        <!-- SERVICES SECTION -->
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Consulting Services</h2>
+                        <hr class="primary">
+                    </div>
                 </div>
             </div>
-        </div>
-    
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="profile-box">
-                    <a href="https://www.upwork.com/o/profiles/users/_~01728a6760a788d684" target="_blank" class="wow bounceIn icon upwork">Upwork</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <div class="service-box wow bounceIn">
+                            <i class="fa fa-4x fa-area-chart"></i>
+                            <h3>Data Visualization</h3>
+                            <p class="text-muted">
+                                Custom interactive visualizations with D3.js, Observable, and modern web technologies.
+                                From exploratory dashboards to publication-ready graphics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <div class="service-box wow bounceIn" data-wow-delay="0.1s">
+                            <i class="fa fa-4x fa-briefcase"></i>
+                            <h3>SAP Consulting</h3>
+                            <p class="text-muted">
+                                Enterprise SAP solutions with integrated analytics. Bridge business requirements
+                                with cutting-edge data visualization technology.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <div class="service-box wow bounceIn" data-wow-delay="0.2s">
+                            <i class="fa fa-4x fa-code"></i>
+                            <h3>Software Development</h3>
+                            <p class="text-muted">
+                                Full-stack development with emphasis on performant, well-documented,
+                                and thoroughly tested solutions. Modern web technologies and best practices.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="profile-box">
-                    <a href="https://observablehq.com/@iashishsingh" target="_blank" class="wow bounceIn icon observable">Observable</a>
+        </section>
+
+        <!-- PROFILES SECTION -->
+        <section id="profile">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Find Me Online</h2>
+                        <hr class="primary">
+                    </div>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="profile-box">
-                    <a href="https://github.com/git-ashish" target="_blank" class="wow bounceIn icon github">GitHub</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box wow bounceIn">
+                            <a href="https://www.upwork.com/o/profiles/users/_~01728a6760a788d684" target="_blank" class="icon">
+                                <i class="fa fa-briefcase" style="margin-right: 0.5rem;"></i>Upwork
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box wow bounceIn" data-wow-delay="0.1s">
+                            <a href="https://observablehq.com/@iashishsingh" target="_blank" class="icon">
+                                <i class="fa fa-bar-chart" style="margin-right: 0.5rem;"></i>Observable
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box wow bounceIn" data-wow-delay="0.2s">
+                            <a href="https://github.com/git-ashish" target="_blank" class="icon">
+                                <i class="fa fa-github" style="margin-right: 0.5rem;"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box wow bounceIn" data-wow-delay="0.3s">
+                            <a href="https://www.linkedin.com/in/iashishsingh/" target="_blank" class="icon">
+                                <i class="fa fa-linkedin" style="margin-right: 0.5rem;"></i>LinkedIn
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="profile-box">
-                    <a href="https://www.linkedin.com/in/iashishsingh/" target="_blank" class="wow bounceIn icon linkedin">LinkedIn</a>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">Let's Create Something Amazing</h2>
+                        <hr class="primary">
+                        <p style="font-size: 1.2rem; color: var(--color-text-secondary);">
+                            Have a data visualization challenge? Need help with SAP integration?
+                            Let's discuss how we can work together.
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top: 2rem;">
+                        <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                        <p style="margin-top: 1rem;">
+                            <a href="mailto:hey@iashishsingh.com" style="font-size: 1.5rem; font-weight: 600;">
+                                hey@iashishsingh.com
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
-            
-            
-        </div>
-    </div>
-</section>
+        </section>
 
-        
+        <!-- SCRIPTS -->
+        <script src="https://iashishsingh.com/js/jquery.js"></script>
+        <script type="module" src="https://iashishsingh.com/js/particles.js"></script>
+        <script src="https://iashishsingh.com/js/bootstrap.min.js"></script>
+        <script src="https://iashishsingh.com/js/jquery.easing.min.js"></script>
+        <script src="https://iashishsingh.com/js/jquery.fittext.js"></script>
+        <script src="https://iashishsingh.com/js/wow.min.js"></script>
+        <script src="https://iashishsingh.com/js/creative.js"></script>
 
-        
+        <!-- Theme Toggle Script -->
+        <script>
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const bodyElement = document.body;
 
-        
+            // Check for saved theme preference or default to light
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            bodyElement.setAttribute('data-theme', currentTheme);
 
-        
-            <!-- CONTACT -->
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                
-                    <h2 class="section-heading">Anything I can help you with?</h2>
-                
-                
-                    <hr class="primary">
-                
-                
-                    <p>Get in touch!</p>
-                
-            </div>
-            
-            
-                <div class="
-                
-                    col-lg-8 col-lg-offset-2
-                
-                 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:hey@iashishsingh.com">hey@iashishsingh.com</a></p>
-                </div>
-            
-        </div>
-    </div>
-</section>
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = bodyElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-        
+                bodyElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
 
-        
+            // Initialize WOW.js for scroll animations
+            new WOW().init();
 
-        <!-- jQuery -->
-<script src="https://iashishsingh.com/js/jquery.js"></script>
-<script type="module" src="https://iashishsingh.com/js/particles.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="https://iashishsingh.com/js/bootstrap.min.js"></script>
-<!-- Plugin JavaScript -->
-<script src="https://iashishsingh.com/js/jquery.easing.min.js"></script>
-<script src="https://iashishsingh.com/js/jquery.fittext.js"></script>
-<script src="https://iashishsingh.com/js/wow.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="https://iashishsingh.com/js/creative.js"></script>
-
-
-        
-  
-    
-      
-    
-  
-
-
+            // Prevent FOUC
+            htmlElement.classList.add('wf-active');
+        </script>
     </body>
 </html>
