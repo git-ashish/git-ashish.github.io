@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="generator" content="Hugo 0.128.2">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Ashish Singh">
+        <meta name="description" content="Data Visualization Consultant & Software Engineer specializing in D3.js, Observable, and interactive data experiences">
+        <meta name="keywords" content="data visualization, D3.js, Observable, consultant, software engineer, SAP">
+
+        <title>Ashish Singh - Data Visualization Engineer & Consultant</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="https://iashishsingh.com/favicon.ico">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://iashishsingh.com/css/bootstrap.min.css" type="text/css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://iashishsingh.com/font-awesome/css/font-awesome.min.css" type="text/css">
+
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="https://iashishsingh.com/css/animate.min.css" type="text/css">
+
+        <!-- Custom CSS - Order matters -->
+        <link rel="stylesheet" href="https://iashishsingh.com/css/creative.css" type="text/css">
+        <link rel="stylesheet" href="https://iashishsingh.com/css/modals.css" type="text/css">
+        <link rel="stylesheet" href="https://iashishsingh.com/css/light-theme.css" type="text/css">
+        <link rel="stylesheet" href="https://iashishsingh.com/css/phase2-enhancements.css" type="text/css">
+
+        <style>
+            /* Prevent FOUC */
+            html {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            html.wf-active {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body id="page-top" data-theme="light">
+
+        <!-- SCROLL PROGRESS INDICATOR -->
+        <div class="scroll-progress" id="scroll-progress"></div>
+
+        <!-- THEME TOGGLE -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun" style="display: none;"></i>
+        </button>
+
+        <!-- NAVIGATION -->
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Ashish Singh</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#featured-work">Work</a></li>
+                        <li><a class="page-scroll" href="#about">About</a></li>
+                        <li><a class="page-scroll" href="#testimonials">Testimonials</a></li>
+                        <li><a class="page-scroll" href="#services">Services</a></li>
+                        <li><a class="page-scroll" href="#blog">Blog</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION WITH VAN GOGH 3D VISUALIZATION -->
+        <header>
+            <div id="three-hero-container" width="100%" height="100%"></div>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 class="gsap-reveal">Data Visualization Engineer</h1>
+                    <p class="subtitle gsap-reveal">Transforming complex data into compelling interactive stories with D3.js & Observable</p>
+                    <div class="cta-buttons gsap-reveal">
+                        <a href="#featured-work" class="btn-modern btn-primary-modern page-scroll">View My Work</a>
+                        <a href="#contact" class="btn-modern btn-outline-modern page-scroll">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- FEATURED WORK SECTION -->
+        <section id="featured-work">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="gsap-reveal">Featured Work</h2>
+                    <p class="subtitle gsap-reveal">Interactive data visualizations that tell stories</p>
+                </div>
+
+                <!-- Project 1: D3 Parade 2021 with Live Observable Embed -->
+                <div class="project-card hover-lift gsap-reveal" data-wow-delay="0.1s">
+                    <div class="observable-embed-container">
+                        <div class="observable-loading">Loading visualization...</div>
+                        <iframe class="observable-embed"
+                                src="https://observablehq.com/embed/@iashishsingh/d3-parade-2021?cells=viewof+play%2Cgraph"
+                                frameborder="0"></iframe>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">D3 Parade 2021 – A Tribute to D3.js</h3>
+                        <p class="project-card-description">
+                            An interactive data visualization celebrating 10 years of D3.js. Features animated transitions through multiple visualization types
+                            (line charts, stream graphs, force-directed networks) showcasing 2,021 of the most loved bl.ocks since 2010.
+                            The final animation displays connected nodes representing authorship relationships in the D3 community.
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">D3.js v6</span>
+                            <span class="tech-badge">Force Simulation</span>
+                            <span class="tech-badge">SVG Animation</span>
+                            <span class="tech-badge">Data Processing</span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="./projects/d3-parade-2021/" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Live Demo
+                            </a>
+                            <a href="https://observablehq.com/@iashishsingh/d3-parade-2021" target="_blank" class="project-link">
+                                <i class="fa fa-code"></i> Observable Notebook
+                            </a>
+                            <a href="#" class="project-link" onclick="openCaseStudy('d3-parade'); return false;">
+                                <i class="fa fa-book"></i> Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: D3 Sunburst with Embedded Visualization -->
+                <div class="project-card hover-lift gsap-reveal" data-wow-delay="0.2s">
+                    <div class="observable-embed-container">
+                        <div class="observable-loading">Loading visualization...</div>
+                        <iframe class="observable-embed"
+                                src="https://observablehq.com/embed/@iashishsingh/d3-sunburst-zoomable?cells=chart"
+                                frameborder="0"></iframe>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">D3 Sunburst — Zoomable Hierarchical Visualization</h3>
+                        <p class="project-card-description">
+                            An interactive sunburst chart for exploring hierarchical data. Features smooth zoom transitions,
+                            customizable colors, and intuitive navigation. Perfect for visualizing file systems, organizational structures,
+                            or any hierarchical dataset. Try clicking the visualization above!
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Hierarchical Data</span>
+                            <span class="tech-badge">Interactive Zoom</span>
+                            <span class="social-proof">
+                                <i class="fa fa-star"></i> 13
+                            </span>
+                            <span class="social-proof">
+                                <i class="fa fa-code-fork"></i> 10
+                            </span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="https://observablehq.com/@iashishsingh/d3-sunburst-zoomable" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Observable Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Aster Chart -->
+                <div class="project-card hover-lift gsap-reveal" data-wow-delay="0.3s">
+                    <div class="project-card-image">
+                        <a href="https://observablehq.com/@git-ashish/d3-aster-chart" target="_blank">
+                            <img src="https://placehold.co/1200x675/112240/82aaff?text=D3+Aster+Chart+Component"
+                                 alt="D3 Aster chart visualization">
+                        </a>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">D3 Aster Chart — Custom Chart Component</h3>
+                        <p class="project-card-description">
+                            A reusable aster chart component combining pie and donut charts with variable radius.
+                            Ideal for displaying metrics with both category and magnitude dimensions. Built with D3.js best practices
+                            for modularity and reusability.
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Custom Charts</span>
+                            <span class="tech-badge">Reusable Components</span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="https://observablehq.com/@git-ashish/d3-aster-chart" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Observable Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Client Work -->
+                <div class="project-card hover-lift gsap-reveal" data-wow-delay="0.4s">
+                    <div class="project-card-image">
+                        <img src="https://placehold.co/1200x675/112240/667eea?text=SAP+Analytics+Dashboard+%E2%80%93+Client+Project"
+                             alt="SAP Analytics Dashboard">
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">SAP Analytics Dashboard — Enterprise Client Project</h3>
+                        <p class="project-card-description">
+                            [Add your client project description here. Example: Custom analytics dashboard integrating SAP data with
+                            interactive D3.js visualizations. Enabled real-time monitoring of business KPIs with drill-down capabilities
+                            and predictive insights.]
+                        </p>
+                        <div class="project-card-meta">
+                            <span class="tech-badge">SAP</span>
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Real-time Data</span>
+                            <span class="tech-badge">Enterprise</span>
+                        </div>
+                        <div class="project-card-links">
+                            <a href="#contact" class="project-link page-scroll">
+                                <i class="fa fa-envelope"></i> Request Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Work CTA -->
+                <div class="text-center gsap-reveal" style="margin-top: 3rem;">
+                    <a href="https://observablehq.com/@iashishsingh" target="_blank" class="btn-modern btn-primary-modern">
+                        View All Observable Notebooks <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="bg-primary" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading gsap-reveal">Turning Data Into Impact</h2>
+                        <hr class="light">
+                        <p class="text-faded gsap-reveal" style="font-size: 1.2rem;">
+                            Software engineer and data visualization specialist with 15+ years of experience building
+                            successful projects through clean code, creative design, and data storytelling.
+                            Passionate about making complex data accessible and beautiful.
+                        </p>
+
+                        <!-- Stats -->
+                        <div class="stats-grid">
+                            <div class="stat-card gsap-reveal-scale" data-wow-delay="0.1s">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-card gsap-reveal-scale" data-wow-delay="0.2s">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Projects Delivered</span>
+                            </div>
+                            <div class="stat-card gsap-reveal-scale" data-wow-delay="0.3s">
+                                <span class="stat-number">Global</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="gsap-reveal">What Clients Say</h2>
+                    <p class="subtitle gsap-reveal">Trusted by businesses worldwide</p>
+                </div>
+
+                <div class="testimonials-container">
+                    <div class="testimonial-slider">
+                        <div class="testimonial-track" id="testimonial-track">
+                            <!-- Testimonial 1 -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    Outstanding work on our data visualization project. Ashish transformed complex analytics
+                                    into beautiful, interactive dashboards that our team actually enjoys using. His D3.js expertise
+                                    is world-class.
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">JD</div>
+                                    <div class="testimonial-info">
+                                        <h4>John Doe</h4>
+                                        <p>CTO, Tech Corp</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 2 -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    Exceptional consultant! Delivered a complex SAP integration with stunning visualizations
+                                    ahead of schedule. The quality of code and documentation exceeded our expectations.
+                                    Highly recommended!
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">SK</div>
+                                    <div class="testimonial-info">
+                                        <h4>Sarah Kim</h4>
+                                        <p>VP Engineering, Enterprise Solutions</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    Working with Ashish was a game-changer for our analytics platform. His ability to turn
+                                    data into compelling visual stories helped us win major clients. Professional, creative,
+                                    and highly skilled.
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">MR</div>
+                                    <div class="testimonial-info">
+                                        <h4>Michael Rodriguez</h4>
+                                        <p>Product Manager, Data Analytics Startup</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <button class="testimonial-arrow left" onclick="previousTestimonial()">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <button class="testimonial-arrow right" onclick="nextTestimonial()">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="testimonial-controls" id="testimonial-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading gsap-reveal">Consulting Services</h2>
+                        <hr class="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <div class="service-box hover-glow gsap-reveal-scale">
+                            <i class="fa fa-4x fa-area-chart"></i>
+                            <h3>Data Visualization</h3>
+                            <p class="text-muted">
+                                Custom interactive visualizations with D3.js, Observable, and modern web technologies.
+                                From exploratory dashboards to publication-ready graphics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <div class="service-box hover-glow gsap-reveal-scale" data-wow-delay="0.1s">
+                            <i class="fa fa-4x fa-briefcase"></i>
+                            <h3>SAP Consulting</h3>
+                            <p class="text-muted">
+                                Enterprise SAP solutions with integrated analytics. Bridge business requirements
+                                with cutting-edge data visualization technology.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <div class="service-box hover-glow gsap-reveal-scale" data-wow-delay="0.2s">
+                            <i class="fa fa-4x fa-code"></i>
+                            <h3>Software Development</h3>
+                            <p class="text-muted">
+                                Full-stack development with emphasis on performant, well-documented,
+                                and thoroughly tested solutions. Modern web technologies and best practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section id="blog">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="gsap-reveal">Latest Insights</h2>
+                    <p class="subtitle gsap-reveal">Thoughts on data visualization and web development</p>
+                </div>
+
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card gsap-reveal">
+                        <div class="blog-card-image">
+                            <span class="blog-card-tag">Tutorial</span>
+                            <img src="https://placehold.co/600x400/667eea/ffffff?text=D3.js+Tips"
+                                 alt="D3.js visualization tips">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-meta">
+                                <span><i class="fa fa-calendar"></i> Mar 15, 2025</span>
+                                <span><i class="fa fa-clock-o"></i> 5 min read</span>
+                            </div>
+                            <h3 class="blog-card-title">10 D3.js Tips for Beautiful Visualizations</h3>
+                            <p class="blog-card-excerpt">
+                                Learn advanced techniques for creating stunning, performant data visualizations
+                                with D3.js. From smooth animations to responsive design patterns.
+                            </p>
+                            <a href="#" class="blog-card-link">
+                                Read More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card gsap-reveal">
+                        <div class="blog-card-image">
+                            <span class="blog-card-tag">Case Study</span>
+                            <img src="https://placehold.co/600x400/c792ea/ffffff?text=Observable+Notebooks"
+                                 alt="Observable notebooks guide">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-meta">
+                                <span><i class="fa fa-calendar"></i> Mar 10, 2025</span>
+                                <span><i class="fa fa-clock-o"></i> 8 min read</span>
+                            </div>
+                            <h3 class="blog-card-title">Building Interactive Reports with Observable</h3>
+                            <p class="blog-card-excerpt">
+                                A deep dive into creating reactive, shareable data analysis notebooks.
+                                Real-world examples and best practices for collaborative data work.
+                            </p>
+                            <a href="#" class="blog-card-link">
+                                Read More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card gsap-reveal">
+                        <div class="blog-card-image">
+                            <span class="blog-card-tag">Guide</span>
+                            <img src="https://placehold.co/600x400/82aaff/ffffff?text=SAP+Integration"
+                                 alt="SAP data visualization">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-meta">
+                                <span><i class="fa fa-calendar"></i> Mar 5, 2025</span>
+                                <span><i class="fa fa-clock-o"></i> 12 min read</span>
+                            </div>
+                            <h3 class="blog-card-title">Visualizing SAP Data with Modern Web Tech</h3>
+                            <p class="blog-card-excerpt">
+                                How to connect SAP systems to cutting-edge visualization frameworks.
+                                Architecture patterns, security considerations, and performance optimization.
+                            </p>
+                            <a href="#" class="blog-card-link">
+                                Read More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center gsap-reveal" style="margin-top: 3rem;">
+                    <a href="#" class="btn-modern btn-outline-modern">
+                        View All Posts <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILES SECTION -->
+        <section id="profile">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading gsap-reveal">Find Me Online</h2>
+                        <hr class="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box gsap-reveal-scale">
+                            <a href="https://www.upwork.com/o/profiles/users/_~01728a6760a788d684" target="_blank" class="icon">
+                                <i class="fa fa-briefcase" style="margin-right: 0.5rem;"></i>Upwork
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box gsap-reveal-scale" data-wow-delay="0.1s">
+                            <a href="https://observablehq.com/@iashishsingh" target="_blank" class="icon">
+                                <i class="fa fa-bar-chart" style="margin-right: 0.5rem;"></i>Observable
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box gsap-reveal-scale" data-wow-delay="0.2s">
+                            <a href="https://github.com/git-ashish" target="_blank" class="icon">
+                                <i class="fa fa-github" style="margin-right: 0.5rem;"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="profile-box gsap-reveal-scale" data-wow-delay="0.3s">
+                            <a href="https://www.linkedin.com/in/iashishsingh/" target="_blank" class="icon">
+                                <i class="fa fa-linkedin" style="margin-right: 0.5rem;"></i>LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading gsap-reveal">Let's Create Something Amazing</h2>
+                        <hr class="primary">
+                        <p class="gsap-reveal" style="font-size: 1.2rem; color: var(--color-text-secondary);">
+                            Have a data visualization challenge? Need help with SAP integration?
+                            Let's discuss how we can work together.
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top: 2rem;">
+                        <i class="fa fa-envelope-o fa-3x gsap-reveal-scale" data-wow-delay=".1s"></i>
+                        <p style="margin-top: 1rem;" class="gsap-reveal">
+                            <a href="mailto:hey@iashishsingh.com" style="font-size: 1.5rem; font-weight: 600;">
+                                hey@iashishsingh.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY MODAL -->
+        <div class="modal-overlay" id="case-study-modal">
+            <div class="case-study-modal">
+                <button class="modal-close" onclick="closeCaseStudy()">
+                    <i class="fa fa-times"></i>
+                </button>
+
+                <div class="modal-header">
+                    <h2 id="modal-title">D3 Parade 2021 - Case Study</h2>
+                    <div class="tech-badges">
+                        <span class="tech-badge">D3.js v6</span>
+                        <span class="tech-badge">Force Simulation</span>
+                        <span class="tech-badge">SVG Animation</span>
+                    </div>
+                </div>
+
+                <div class="modal-body" id="modal-body">
+                    <div class="case-study-section">
+                        <h3>Challenge</h3>
+                        <p>
+                            Create a compelling tribute to D3.js' 10th anniversary that showcases the evolution
+                            of the library and celebrates the community's contributions through 2,021 of the most
+                            loved visualizations.
+                        </p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <h3>Solution</h3>
+                        <p>
+                            Developed an interactive visualization featuring smooth transitions between multiple
+                            chart types (line, area, stream graphs, stacked bars, donut, force-directed network).
+                            The final animation displays connected nodes representing authorship relationships in
+                            the D3 community.
+                        </p>
+                        <img src="https://placehold.co/1000x600/112240/64ffda?text=D3+Parade+Screenshot"
+                             alt="D3 Parade visualization"
+                             class="case-study-image">
+                    </div>
+
+                    <div class="case-study-section">
+                        <h3>Technical Approach</h3>
+                        <ul style="line-height: 2;">
+                            <li>Processed 10MB dataset from bl.ocks.org archives</li>
+                            <li>Implemented custom force simulation for 2,021 nodes</li>
+                            <li>Created smooth transitions using D3 timers and interpolations</li>
+                            <li>Optimized rendering performance for complex animations</li>
+                            <li>Used Pantone Colors of the Year for annual color coding</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-study-section">
+                        <h3>Impact & Results</h3>
+                        <div class="case-study-metrics">
+                            <div class="metric-card">
+                                <span class="metric-value">2,021</span>
+                                <span class="metric-label">Visualizations Featured</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">10</span>
+                                <span class="metric-label">Visualization Types</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">10MB</span>
+                                <span class="metric-label">Dataset Processed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-section">
+                        <h3>Links</h3>
+                        <div class="project-card-links">
+                            <a href="./projects/d3-parade-2021/" target="_blank" class="project-link">
+                                <i class="fa fa-external-link"></i> Live Demo
+                            </a>
+                            <a href="https://observablehq.com/@iashishsingh/d3-parade-2021" target="_blank" class="project-link">
+                                <i class="fa fa-code"></i> Observable Notebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="https://iashishsingh.com/js/jquery.js"></script>
+        <script src="https://iashishsingh.com/js/bootstrap.min.js"></script>
+        <script src="https://iashishsingh.com/js/jquery.easing.min.js"></script>
+        <script src="https://iashishsingh.com/js/jquery.fittext.js"></script>
+        <script src="https://iashishsingh.com/js/wow.min.js"></script>
+        <script src="https://iashishsingh.com/js/creative.js"></script>
+
+        <!-- GSAP for Advanced Animations -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+        <!-- Van Gogh Three.js Hero -->
+        <script type="module" src="https://iashishsingh.com/js/van-gogh-hero.js"></script>
+
+        <!-- Phase 2 Scripts -->
+        <script>
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const bodyElement = document.body;
+
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            bodyElement.setAttribute('data-theme', currentTheme);
+
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = bodyElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                bodyElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Initialize WOW.js
+            new WOW().init();
+
+            // GSAP Scroll Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Reveal animations
+            gsap.utils.toArray('.gsap-reveal').forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+            });
+
+            gsap.utils.toArray('.gsap-reveal-scale').forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
+                    },
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            // Scroll Progress Indicator
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.offsetHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+            });
+
+            // Testimonials Slider
+            let currentTestimonial = 0;
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            const totalTestimonials = testimonials.length;
+
+            function initTestimonials() {
+                const dotsContainer = document.getElementById('testimonial-dots');
+                for (let i = 0; i < totalTestimonials; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => goToTestimonial(i);
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateTestimonials() {
+                const track = document.getElementById('testimonial-track');
+                const offset = -currentTestimonial * 100;
+                track.style.transform = `translateX(${offset}%)`;
+
+                document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentTestimonial);
+                });
+            }
+
+            function nextTestimonial() {
+                currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+                updateTestimonials();
+            }
+
+            function previousTestimonial() {
+                currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+                updateTestimonials();
+            }
+
+            function goToTestimonial(index) {
+                currentTestimonial = index;
+                updateTestimonials();
+            }
+
+            // Auto-rotate testimonials
+            setInterval(nextTestimonial, 5000);
+
+            // Case Study Modal
+            function openCaseStudy(projectId) {
+                const modal = document.getElementById('case-study-modal');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeCaseStudy() {
+                const modal = document.getElementById('case-study-modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Close modal on overlay click
+            document.getElementById('case-study-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeCaseStudy();
+                }
+            });
+
+            // Close modal on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeCaseStudy();
+                }
+            });
+
+            // Initialize
+            document.addEventListener('DOMContentLoaded', function() {
+                initTestimonials();
+                document.documentElement.classList.add('wf-active');
+            });
+
+            // Simple Analytics (optional - replace with your analytics)
+            // gtag('config', 'YOUR-GA-ID');
+        </script>
+    </body>
+</html>
