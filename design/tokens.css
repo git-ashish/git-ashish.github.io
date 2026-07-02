@@ -1,0 +1,75 @@
+/* iashishsingh.com — "The Warm Index" design tokens
+   Stack-agnostic. Drop into SvelteKit/Astro or use standalone.
+   Light-only (warm paper). */
+
+:root {
+  color-scheme: light;
+
+  /* — Color roles (light) — greyer warm-white —
+     BACKUP (original "warm paper", to restore just swap these back):
+       --bg #F4F1EA · --surface #EDE8DE · --text #1C1A17 · --text-muted #63605A
+       · --accent #9A3B26 · --accent-hover #7C2E1D · --border #D8D1C4 */
+  --bg:            #FFFCF6;   /* page — near-white, faint warmth */
+  --surface:       #F3F1EB;   /* raised panels, reel band */
+  --text:          #1A1A18;   /* primary */
+  --text-muted:    #6A6862;   /* secondary, meta */
+  --accent:        #83269A;   /* violet — links, active (was terracotta #9A3B26) */
+  --accent-hover:  #681F7A;   /* derived: same hue/sat, lightness 38%→30% (mirrors the old terracotta→hover step) */
+  --border:        #E6E3DC;   /* hairlines */
+
+  /* — Type families — */
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body:    'Newsreader', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* — Type scale (1.25 major third, base 16px) — one size per role —
+     xs = all mono (labels, meta, nav, captions, footer, buttons)
+     md = body prose, CTAs, motto · lg = lead only
+     xl = titles (brand, index, reel, triad) · display = page h1 */
+  --text-xs:   0.8rem;      /* 12.8 */
+  --text-sm:   0.9rem;      /* 14.4 — scale step, unused */
+  --text-base: 1rem;        /* 16   — scale step, unused */
+  --text-md:   1.1875rem;   /* 19 */
+  --text-lg:   1.3125rem;   /* 21 */
+  --text-xl:   1.5rem;      /* 24 */
+  --text-2xl:  1.953rem;    /* 31   — scale step, unused */
+  --text-display: clamp(1.9rem, 1.35rem + 2.4vw, 2.9rem); /* 30 → 46 */
+
+  --leading-tight: 1.05;
+  --leading-snug:  1.35;
+  --leading-body:  1.65;
+  --tracking-tight:-0.02em;
+
+  /* — Spacing (4/8px) — */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-5: 1.5rem;  --space-6: 2rem;
+  --space-7: 3rem;     --space-8: 4rem;    --space-9: 6rem;
+  --space-10: 8rem;
+  --space-section: clamp(3rem, 8vw, 6rem);
+
+  /* — Layout — */
+  --measure: 34em;         /* prose column */
+  --container: 44rem;      /* 704px content width (prose stays capped by --measure) */
+  --gutter: clamp(1.25rem, 5vw, 2.125rem);
+
+  /* — Borders / radius — */
+  --border-hairline: 1px solid var(--border);
+  --radius: 8px;
+  --radius-card: 12px;
+
+  /* — Motion — */
+  --dur-1: 120ms; --dur-2: 200ms; --dur-3: 320ms; --dur-4: 600ms;
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Light-only theme (dark mode removed per request). */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

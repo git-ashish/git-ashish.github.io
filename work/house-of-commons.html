@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composition of the House of Commons — Ashish Singh</title>
+<meta name="description" content="Institute for Government — interactive seat charts of the UK parliaments, built in D3.">
+<link rel="stylesheet" href="../design/tokens.css">
+<link rel="stylesheet" href="../design/case-study.css">
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="back" href="../index.html#work">← Selected work</a>
+  </nav>
+</div>
+
+<main class="wrap">
+  <p class="eyebrow">Institute for Government · 2019 · Data visualization</p>
+  <h1>Composition of the House of Commons</h1>
+  <p class="lead">One square per seat, coloured by party, so anyone can read the make-up of the House of Commons at a glance and set it beside the last few elections.</p>
+
+  <dl class="meta">
+    <div><dt>Role</dt><dd>Design &amp; development</dd></div>
+    <div><dt>Stack</dt><dd>D3 · JavaScript</dd></div>
+    <div><dt>Year</dt><dd>2019</dd></div>
+    <div><dt>Client</dt><dd>Institute for Government</dd></div>
+  </dl>
+
+  <figure>
+    <img src="../assets/work/hoc-mosaic.png" alt="Square-grid seat chart of the House of Commons showing party composition for 2015, 2017 and July 2019." loading="lazy">
+    <figcaption>House of Commons composition — 2015, 2017 and 22 July 2019, one square per seat.</figcaption>
+  </figure>
+
+  <div class="body prose">
+    <h2>One square, one seat</h2>
+    <p>Every seat in the chamber gets a square, coloured by the party that holds it and laid out on a tidy grid. Each chart carries a working-majority marker, so the line between governing and not is something you can see rather than count.</p>
+    <h2>Four legislatures from the same code</h2>
+    <p>The Commons runs to 650 seats; the Scottish, Welsh and Northern Irish chambers are smaller and shaped differently. The grid logic is written once and reads each legislature from data, so a single build renders all four — and refreshing after an election means swapping numbers, not redrawing.</p>
+    <h2>The members who don't vote</h2>
+    <p>A seat chart that shows only party colours quietly lies about who casts a vote. The Speaker, the deputies and abstaining MPs are called out directly on the grid, so the working majority reflects who actually walks through the division lobby.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="../assets/work/parliament-uk.png" alt="UK Parliament seat chart." loading="lazy">
+    <img src="../assets/work/parliament-scotland.png" alt="Scottish Parliament seat chart." loading="lazy">
+    <img src="../assets/work/parliament-wales.png" alt="Welsh Parliament seat chart." loading="lazy">
+    <img src="../assets/work/parliament-northern-ireland.png" alt="Northern Ireland Assembly seat chart." loading="lazy">
+  </div>
+
+  <div class="pager">
+    <a href="../index.html#work">← All work</a>
+    <a href="aperture.html">Aperture (Strategy&amp;) →</a>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaccination coverage, India — Ashish Singh</title>
+<meta name="description" content="Johns Hopkins collaboration — a web app tracking vaccination coverage across India to district level.">
+<link rel="stylesheet" href="../design/tokens.css">
+<link rel="stylesheet" href="../design/case-study.css">
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="back" href="../index.html#work">← Selected work</a>
+  </nav>
+</div>
+
+<main class="wrap">
+  <p class="eyebrow">Johns Hopkins University · 2021 · Geospatial</p>
+  <h1>Tracking vaccination coverage across India</h1>
+  <p class="lead">A web app that tracked India's vaccination coverage down to the district, built in collaboration with Johns Hopkins in 2021.</p>
+
+  <dl class="meta">
+    <div><dt>Role</dt><dd>Data viz &amp; development</dd></div>
+    <div><dt>Stack</dt><dd>R · Python · D3</dd></div>
+    <div><dt>Year</dt><dd>2021</dd></div>
+    <div><dt>Client</dt><dd>Johns Hopkins University (collaboration)</dd></div>
+  </dl>
+
+  <figure>
+    <img src="../assets/work/vaccination-districts.png" alt="Choropleth map of India shaded by district." loading="lazy">
+    <figcaption>District-level choropleth of India.</figcaption>
+  </figure>
+
+  <div class="body prose">
+    <h2>Why district-level</h2>
+    <p>India ran its vaccine campaign across roughly seven hundred districts, and a national number hides almost everything worth knowing. The dashboard, built with a team at Johns Hopkins, reported coverage at that granularity through choropleths, so a reader could find the place they actually lived instead of a state average.</p>
+    <h2>Reading a crowded map</h2>
+    <p>Coverage was binned into bands and each district shaded by the one it fell into, which keeps the eye on differences between neighbours rather than on decimal points. The trouble was the small, dense districts around the big cities: they collapse to a few pixels and vanish, so those regions were lifted into insets that stayed legible next to the main map.</p>
+    <h2>The stack underneath</h2>
+    <p>R and Python did the data work, D3 handled everything on screen. Being a research collaboration, the numbers had to move from analysis into the browser without anyone hand-editing them along the way.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="../assets/work/vaccination-states.png" alt="India states choropleth." loading="lazy">
+    <img src="../assets/work/vaccination-up-inset.png" alt="Uttar Pradesh district inset." loading="lazy">
+  </div>
+
+  <div class="pager">
+    <a href="aperture.html">← Aperture (Strategy&amp;)</a>
+    <a href="broadridge.html">Next-gen technology adoption →</a>
+  </div>
+</main>
+
+</body>
+</html>
